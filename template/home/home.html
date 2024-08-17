@@ -10,19 +10,19 @@
             <div class="text-content">
                 <h2>Hello Welcome to <br>HealthNexus Platform</h2>
                 <p>The landscape of reproductive health education for teenagers and young adults faces significant challenges, marked by gaps in knowledge, access, and engagement</p>
-                <a href="#" class="start-challenge">Lat play Games</a>
+                <a href="#" class="start-challenge">Lat play Studing</a>
                 <a href="#" class="know-more">know more</a>
             </div>
             <div class="image-content">
-                <img src="{% static 'images/slider.png' %}" alt="Illustration of people with question marks" width="500px" height="400px">
+                <img src="{% static 'images/slider.png' %}" alt="Illustration of people with question marks" width="350px" height="250px">
             </div>
         </div>
     </div>
     
-      <center> <h2>Available Courses</h2></center>
+      <h2>Most Popular Courses</h2>
    <div class="quiz-cards">
     
-    {% for course in courses|slice:":4" %}
+    {% for course in courses %}
     <div class="card">
         {% if course.course_banner %}
         <img src="{{ course.course_banner.url }}" alt="{{ course.name }}">
@@ -48,8 +48,35 @@
 <br>
 <br>
 <br>
+<h2>Health Courses</h2>
+<div class="quiz-cards">
+ 
+ {% for course in courses %}
+ <div class="card">
+     {% if course.course_banner %}
+     <img src="{{ course.course_banner.url }}" alt="{{ course.name }}">
+     {% endif %}
+     <center>
+     <div class="card-content">
+         <h3>{{ course.name }}</h3>
+         <p>{{ course.description|truncatewords:8  }}</p>
+          <a href="{% url 'view_course' course.pk %}">View Course</a>
+          <a href="{% url 'take_course' course.id %}"style="background-color: green;">Take Course</a>
+      </div></center>
+      </div>
+             
+     {% endfor %}
+ </div>
+ <br>
+  {% if courses|length > 4 %}
+<div class="view-more">
+ <a href="{% url 'course_list' %}" class="view-more">View More Courses</a>
+ </div>
+ {% endif %}
+
+<br>
 <!-- Quiz Cards Section -->
-<center> <h2>Available Quizzes</h2></center>
+<!-- <center> <h2>Available Quizzes</h2></center>
 <div class="quiz-cards">
     
     {% for quiz in quizzes|slice:":3" %}
@@ -65,14 +92,14 @@
         </div>
     </div>
     {% endfor %}
-</div>
+</div> -->
 <br>
 <br>
-{% if quizzes|length > 3 %}
+<!-- {% if quizzes|length > 3 %}
 <div class="view-more">
     <a href="{% url 'quiz_list' %}" class="view-more">View More Quizzes</a>
 </div>
-{% endif %}
+{% endif %} -->
 </div>
 </div
 <br>
