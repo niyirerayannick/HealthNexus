@@ -188,9 +188,9 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/login/error/'
 
 JAZZMIN_SETTINGS = {
-    "site_title": "HealthNexus ADMIN",
-    "site_header": "HealthNexus",
-    "site_brand": "HealthNexus",
+    "site_title": "MUBERARUGO ADMIN",
+    "site_header": "MUBERARUGO",
+    "site_brand": "MUBERARUGO",
     "login_logo": None,
-    "copyright": "HealthNexus",
+    "copyright": "MUBERARUGO",
     }
